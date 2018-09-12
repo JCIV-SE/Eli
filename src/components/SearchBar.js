@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../public/stylesheet/main.css';
 
 export default class Search extends Component {
 	constructor(props) {
@@ -11,7 +10,6 @@ export default class Search extends Component {
 	}
   state = {
 		query: '',
-		// errSearch: []
 	}
 	
 	onSearchChange = e => {
@@ -23,29 +21,20 @@ export default class Search extends Component {
 		this.props.onChange(this.state.query);
 		e.currentTarget.reset();
 	}
-
-  // searchBtn = (query) => {
-	// 	ErrorAPI.search()
-	// 	.then((errs) => {
-	// 		this.setState(() => ({
-	// 			query,
-	// 			errs
-	// 		}))
-	// 	})
-	// }
 	
 	search = (e) => {
     e.preventDefault()
 
 		let queryData = { fromClient: this.state.query};
 
-		if(queryData.fromClient.length < 1){
+		if (queryData.fromClient.length < 1){
 			return false;	
 		}
-		console.log(queryData)
+
     const url = '/api/search';
     const { websites } = this.state;
-    const userSearch = { websites };
+		const userSearch = { websites };
+		
     fetch(url, {
       method: 'POST',
       headers: {
@@ -67,7 +56,7 @@ export default class Search extends Component {
   render() {
 		// const { query, errSearch } = this.state
       return (
-				<div className="search-error">
+				<div className="search">
 					<div className="search-error-bar">
 
 						<div className="search-error-input-wrapper">
@@ -75,15 +64,15 @@ export default class Search extends Component {
 								className="search-error-input-bar"
 								type="text"
 								onChange={this.search}
-								placeholder="Try To Sober Up Here..."
+								placeholder="Search Entry"
 								// value={query}
 							/>
-							<button 
+							{/* <button 
 								className="searchButton" 
 								onClick={this.onSearchChange}
 							>
 							Find Solutions
-							</button>
+							</button> */}
 						</div>
 					</div>
 					{/* <div className="search-error-results">

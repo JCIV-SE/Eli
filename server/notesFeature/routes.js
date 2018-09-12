@@ -16,12 +16,15 @@ router.post('/create', createNote)
 
 /* read */
 router.get('/all', getAllNotes)
-router.get('/:uid', getNoteFromUid)
+router.get('/id/:uid', getNoteFromUid)
 
 /* update */
-router.patch('/:uid', updateNoteFromUid)
+router.patch('/id/:uid', updateNoteFromUid)
 
 /* delete */
-router.delete('/:uid', deleteNoteFromUid)
+router.delete('/id/:uid', deleteNoteFromUid)
+
+/* unrecognized route */
+router.get('/*', (_, res) => res.send(404).end())
 
 module.exports = router

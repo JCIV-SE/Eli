@@ -32,7 +32,7 @@ module.exports = {
     publicPath: 'http://localhost:3000/build/',
     historyApiFallback: false,
     proxy: {
-      context: ['/api', '/notes'],
+      context: ['/api', '/notes', '/testing'],
       target: 'http://localhost:8080/'
     }
   },

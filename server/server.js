@@ -59,4 +59,7 @@ app.get('/testing', (req, res) => {
 //   UserController.addUser
 // )
 
+// exported for use in testing
+module.exports = app
+
 app.listen(8080, () => console.log('🚦 Now listening on port 8080 🚦'))

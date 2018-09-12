@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FormLabel from './FormLabel';
 import fetch from 'isomorphic-fetch';
-import '../../public/stylesheet/signup.css';
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -11,7 +10,7 @@ export default class SignUp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	changeState(){
+	changeState() {
 		console.log('hi')
 		if (this.state.value === true) {
 			this.setState({value: true});
@@ -35,7 +34,7 @@ export default class SignUp extends Component {
     .catch(err => console.log({err}));
   }
 
-  render(){
+  render() {
     return(
       <div className='fullForm'>
       <form onSubmit={this.handleSubmit}>

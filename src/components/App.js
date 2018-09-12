@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
+import SearchBar from './SearchBar';
+import ErrorsContainer from './ErrorsContainer'
 import SignUp from './SignUp';
-import MainPage from './Main.js';
-import '../../public/stylesheet/signup.css';
-
+import '../assets/app.css';
 
 export default class App extends Component {
 	render() {
-		return (
-			<div>
+		// if (!document.cookies) {
+		// 	// render dashboard
+		// }
+		// else {
+		// 	// render dashboard with login overlaid
+		// }
 
-				<h1 className='heading'>Get Drunk On Errors!</h1>
-				<img/>
-				{/* <TestForm/> */}
-				<MainPage/>
+		return (
+			<div className='appContainer'>
+				<nav className='navContainer'>
+					<h1 className='navTitle'>Eli Dashboard</h1>
+					<SearchBar />
+				</nav>
+					<ErrorsContainer />
 			</div>
 		)
 	}
