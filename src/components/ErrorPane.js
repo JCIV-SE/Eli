@@ -37,29 +37,31 @@ class ErrorPane extends Component {
     let feedItems = [];
     console.log('Error Info: ', this.props.data);
 
-    // for (let i = 0; i < this.state.errorInfo.length; i += 1) {
-    //   feedItems.push(
-    //     // <pane className='pane'>
-    //     //   <Overview passedInfo={this.state.errorInfo.overview}/>
-    //     //   <Notes passedInfo={this.state.errorInfo.notes}/>
-    //     //   <Resources passedInfo={this.state.errorInfo.resources}/>
-    //     //   <Technologies passedInfo={this.state.errorInfo.technologies}/>
-    //     //   <ID passedInfo={this.state.errorInfo.errorID}/>
-    //     //   <ErrorCode passedInfo={this.state.errorInfo.errorcode}/>
-    //     //   <FileLocation passedInfo={this.state.errorInfo.filelocation}/>
-    //     // </pane>
+    for (let i = 0; i < this.props.data.length; i += 1) {
+      feedItems.push(
+        // <pane className='pane'>
+        //   <Overview passedInfo={this.state.errorInfo.overview}/>
+        //   <Notes passedInfo={this.state.errorInfo.notes}/>
+        //   <Resources passedInfo={this.state.errorInfo.resources}/>
+        //   <Technologies passedInfo={this.state.errorInfo.technologies}/>
+        //   <ID passedInfo={this.state.errorInfo.errorID}/>
+        //   <ErrorCode passedInfo={this.state.errorInfo.errorcode}/>
+        //   <FileLocation passedInfo={this.state.errorInfo.filelocation}/>
+        // </pane>
 
-    //     <div className='pane'>
-    //       <Overview passedInfo={"text"}/>
-    //       <Notes passedInfo={"text"}/>
-    //       <Resources passedInfo={"text"}/>
-    //       <Technologies passedInfo={"text"}/>
-    //       <ID passedInfo={"text"}/>
-    //       <ErrorCode passedInfo={"text"}/>
-    //       <FileLocation passedInfo={"text"}/>
-    //     </div>
-    //   )
-    // }
+        <div className='pane'>
+          <Overview passedInfo={"text"}/>
+          <Notes passedInfo={"text"}/>
+          <Resources passedInfo={"text"}/>
+          <Technologies passedInfo={"text"}/>
+          <ID passedInfo={"text"}/>
+          <ErrorCode passedInfo={"text"}/>
+          <FileLocation passedInfo={"text"}/>
+        </div>
+      )
+    }
+
+    console.log('feed items: ', feedItems);
 
     return (
       <div className='pane-container'>

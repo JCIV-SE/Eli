@@ -6,19 +6,22 @@ class ErrorsContainer extends Component {
     super(props);
 
     this.state = {
-      errors: [0,1,2,3,4,5]
+      errors: [0,1,2,3,4,5,6,7,8]
     }
   }
 
-  // componentDidMount() {
-  //   this.getErrors();
-  // }
+  componentDidMount() {
+    this.getErrors();
+  }
 
-  // getErrors() {
-  //   fetch('/notes/all')
-  //     .then(results => results.json())
-  //     .then(results => this.setState({errors: results}));
-  // }
+  getErrors() {
+    fetch('/notes/all')
+      .then(results => results.json())
+      .then(results => {
+        this.setState({errors: results})
+        console.log('Results in container: ', results);
+      });
+  }
 
   render() {
     return (
