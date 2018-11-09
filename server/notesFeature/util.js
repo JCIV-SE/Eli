@@ -1,5 +1,5 @@
 function isNormalInteger(str) {
-  return /^\+?\d+$/.test(str)
+  return /^\+?\d+$/.test(str);
 }
 
-module.exports = isNormalInteger
+module.exports = isNormalInteger;

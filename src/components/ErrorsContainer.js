@@ -6,8 +6,8 @@ class ErrorsContainer extends Component {
     super(props);
 
     this.state = {
-      errors: [0,1,2,3,4,5,6,7,8]
-    }
+      errors: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    };
   }
 
   componentDidMount() {
@@ -18,19 +18,19 @@ class ErrorsContainer extends Component {
     fetch('/notes/all')
       .then(results => results.json())
       .then(results => {
-        this.setState({errors: results})
+        this.setState({ errors: results });
         console.log('Results in container: ', results);
       });
   }
 
   render() {
     return (
-      <div className='errorsContainer'>
-        <div className='flexRow'>
-          <ErrorPane data={ this.state.errors }/>
+      <div className="errorsContainer">
+        <div className="flexRow">
+          <ErrorPane data={this.state.errors} />
+        </div>
       </div>
-    </div>
-    )
+    );
   }
 }
 

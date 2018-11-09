@@ -1,50 +1,50 @@
-const fetch = require("node-fetch");
-const User = require("./UserModel");
+const fetch = require('node-fetch');
+const User = require('./UserModel');
 const mongoose = require('mongoose');
 
-
 const dbConnect = () => {
-  mongoose.connect('mongodb://localhost:27017/ecli_db', { useNewUrlParser: true });
-  mongoose.connection.once('open', (data) => {
+  mongoose.connect(
+    'mongodb://localhost:27017/ecli_db',
+    { useNewUrlParser: true }
+  );
+  mongoose.connection.once('open', data => {
     console.log('Connection opened!');
   });
-}
+};
 
 const UserController = {
-
   //TODO:
-  // parse responses from CLI for consistency 
+  // parse responses from CLI for consistency
   // e.g: Lowercase all responses etc.
-  createUser(req, res){
-    const {username, password} = req.body;
+  createUser(req, res) {
+    const { username, password } = req.body;
     dbConnect();
-    User.create({username: username, password: password}, (err, response) => {
-      if(err) {
+    User.create({ username: username, password: password }, (err, response) => {
+      if (err) {
         mongoose.disconnect();
         res.send(err);
       }
-      const {_id, username, password, isLoggedIn} = response;
+      const { _id, username, password, isLoggedIn } = response;
       mongoose.disconnect();
-      res.send({id: _id, username, password, isLoggedIn});
-    })
+      res.send({ id: _id, username, password, isLoggedIn });
+    });
   },
 
-  loginUser(req, res){
-    const {username, password} = req.body;
+  loginUser(req, res) {
+    const { username, password } = req.body;
     dbConnect();
-    User.findOne({username: username, password: password}, (err, response) => {
-      if(err) {
+    User.findOne({ username: username, password: password }, (err, response) => {
+      if (err) {
         mongoose.disconnect();
         return res.send(err);
       } else {
-        const {_id, username, password} = response;
+        const { _id, username, password } = response;
         mongoose.disconnect();
-        return res.send({id: _id, username, password});
+        return res.send({ id: _id, username, password });
       }
-    })
-  },
+    });
+  }
 
-  
   // checkDB(req, res, next) {
   //   User.findOne({ name: res.locals.username }, (err, response) => {
   //     if (response) {
@@ -54,7 +54,6 @@ const UserController = {
   //     }
   //   });
   // },
-
 
   // addUser(req, res) {
   //   const aUser = new User({
@@ -71,7 +70,6 @@ const UserController = {
   //   });
   // },
 
-
   // getUser(req, res) {
   //   User.findOne({ name: res.locals.name }, (err, user) => {
   //     if (err) {
@@ -82,12 +80,10 @@ const UserController = {
   //   });
   // },
 
-
   // authenticateUser(req, res) {
   //   const authUrl = `https://github.com/login/oauth/authorize?scope=user:email&client_id=${authInfo.CLIENT_ID}`;
   //   res.redirect(authUrl);
   // },
-
 
   // handleAthenticatedUser(req, res, next) {
   //   const code = req.query.code;
@@ -114,7 +110,6 @@ const UserController = {
   //     });
   // },
 
-
   // getAuthInfo(req, res, next) {
   //   const token = res.locals.token;
   //   const authUrl = `https://api.github.com/user?access_token=${token}`;
@@ -133,7 +128,6 @@ const UserController = {
   //       res.end();
   //     });
   // }
-
 };
 
 module.exports = UserController;

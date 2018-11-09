@@ -1,36 +1,54 @@
 import React, { Component } from 'react';
 
-
-const Overview= props => (
-  <div><div className='pane-title'> { props.passedInfo } </div><br></br></div>
+const Overview = props => (
+  <div>
+    <div className="pane-title"> {props.passedInfo} </div>
+    <br />
+  </div>
 );
 const Notes = props => (
-  <div><div className='pane-notes'> { props.passedInfo } </div><br></br><br></br></div>
+  <div>
+    <div className="pane-notes"> {props.passedInfo} </div>
+    <br />
+    <br />
+  </div>
 );
 const Resources = props => (
-  <div><div className='pane-resources'> Resources:  { props.passedInfo } </div><br></br></div>
+  <div>
+    <div className="pane-resources"> Resources: {props.passedInfo} </div>
+    <br />
+  </div>
 );
 const Technologies = props => (
-  <div><div className='pane-tech'> Technologies: { props.passedInfo } </div><br></br></div>
+  <div>
+    <div className="pane-tech"> Technologies: {props.passedInfo} </div>
+    <br />
+  </div>
 );
 const ID = props => (
-  <div><div className='pane-id'> SSID: { props.passedInfo } </div><br></br></div>
+  <div>
+    <div className="pane-id"> SSID: {props.passedInfo} </div>
+    <br />
+  </div>
 );
 const ErrorCode = props => (
-  <div><div className='pane-error-code'> Error Code: { props.passedInfo } </div><br></br></div>
+  <div>
+    <div className="pane-error-code"> Error Code: {props.passedInfo} </div>
+    <br />
+  </div>
 );
 const FileLocation = props => (
-  <div><div className='pane-file'> File Location: { props.passedInfo } </div>
-  <br></br><br></br></div>
+  <div>
+    <div className="pane-file"> File Location: {props.passedInfo} </div>
+    <br />
+    <br />
+  </div>
 );
-
 
 class ErrorPane extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      
-    };
+    this.state = {};
   }
 
   render() {
@@ -49,31 +67,28 @@ class ErrorPane extends Component {
         //   <FileLocation passedInfo={this.state.errorInfo.filelocation}/>
         // </pane>
 
-        <div className='pane'>
-          <Overview passedInfo={"text"}/>
-          <Notes passedInfo={"text"}/>
-          <Resources passedInfo={"text"}/>
-          <Technologies passedInfo={"text"}/>
-          <ID passedInfo={"text"}/>
-          <ErrorCode passedInfo={"text"}/>
-          <FileLocation passedInfo={"text"}/>
+        <div className="pane">
+          <Overview passedInfo={'text'} />
+          <Notes passedInfo={'text'} />
+          <Resources passedInfo={'text'} />
+          <Technologies passedInfo={'text'} />
+          <ID passedInfo={'text'} />
+          <ErrorCode passedInfo={'text'} />
+          <FileLocation passedInfo={'text'} />
         </div>
-      )
+      );
     }
 
     console.log('feed items: ', feedItems);
 
-    return (
-      <div className='pane-container'>
-        { feedItems }
-      </div>
-    )
-  } 
+    return <div className="pane-container">{feedItems}</div>;
+  }
 }
 
 export default ErrorPane;
 
-{/* <overview className='pane-title'>
+{
+  /* <overview className='pane-title'>
 Did not update connected files after changing File Type from JS to JSX
 </overview><br></br>
 <notes className='pane-notes'>
@@ -95,4 +110,5 @@ Error Code: N/A
 </errorcode><br></br>
 <filelocation className='pane-file'>
 File Location: ./src/components/ErrorPane.js
-</filelocation><br></br><br></br> */}
+</filelocation><br></br><br></br> */
+}

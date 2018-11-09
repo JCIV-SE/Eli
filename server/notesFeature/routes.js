@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
 const {
   createNote,
@@ -7,24 +7,24 @@ const {
   getAllNotes,
   updateNoteFromUid,
   deleteNoteFromUid
-} = require('./controller')
+} = require('./controller');
 
-router.get('/ping', (req, res) => res.status(200).send({ ping: 'ok' }))
+router.get('/ping', (req, res) => res.status(200).send({ ping: 'ok' }));
 
 /* create */
-router.post('/create', createNote)
+router.post('/create', createNote);
 
 /* read */
-router.get('/all', getAllNotes)
-router.get('/id/:uid', getNoteFromUid)
+router.get('/all', getAllNotes);
+router.get('/id/:uid', getNoteFromUid);
 
 /* update */
-router.patch('/id/:uid', updateNoteFromUid)
+router.patch('/id/:uid', updateNoteFromUid);
 
 /* delete */
-router.delete('/id/:uid', deleteNoteFromUid)
+router.delete('/id/:uid', deleteNoteFromUid);
 
 /* unrecognized route */
-router.get('/*', (_, res) => res.send(404).end())
+router.get('/*', (_, res) => res.send(404).end());
 
-module.exports = router
+module.exports = router;

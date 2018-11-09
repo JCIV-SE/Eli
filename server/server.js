@@ -1,26 +1,26 @@
-const SearchController = require('./SearchController')
-const UserController = require('./UserController')
-const bodyParser = require('body-parser')
-const express = require('express')
-const app = express()
+const SearchController = require('./SearchController');
+const UserController = require('./UserController');
+const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
 
 ///////////
 /*MongoDB*/
 ///////////
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connect(
   'mongodb://localhost:27017/ecli_db',
   { useNewUrlParser: true }
-)
+);
 
-const db = mongoose.connection
+const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error'))
+db.on('error', console.error.bind(console, 'connection error'));
 
 db.once('open', () => {
-  console.log('Connected to the ecli_db local database')
-})
+  console.log('Connected to the ecli_db local database');
+});
 
 ///////////////
 /*MiddleWare*/
@@ -29,25 +29,25 @@ app.use(
   bodyParser.urlencoded({
     extended: true
   })
-)
-app.use(bodyParser.json())
+);
+app.use(bodyParser.json());
 
 ///////////
 /*Routes*/
 ///////////
-const userRouter = require('./userRouter')
-app.use('/users', userRouter)
+const userRouter = require('./userRouter');
+app.use('/users', userRouter);
 
-app.use('/notes', require('./notesFeature/routes'))
+app.use('/notes', require('./notesFeature/routes'));
 
 app.get('/api', (req, res) => {
-  res.send('up and running')
-})
+  res.send('up and running');
+});
 
 app.get('/testing', (req, res) => {
-  console.log('hit the server')
-  res.send('You got it DUDE!!!')
-})
+  console.log('hit the server');
+  res.send('You got it DUDE!!!');
+});
 
 // app.get('/api/login', UserController.authenticateUser)
 
@@ -60,6 +60,6 @@ app.get('/testing', (req, res) => {
 // )
 
 // exported for use in testing
-module.exports = app
+module.exports = app;
 
-app.listen(8080, () => console.log('🚦 Now listening on port 8080 🚦'))
+app.listen(8080, () => console.log('🚦 Now listening on port 8080 🚦'));
