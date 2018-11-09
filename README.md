@@ -1,7 +1,3 @@
-# error-cli
+#ELI
 
-> A notepad for errors
-
-## License
-
-MIT
+A notepad for errors
