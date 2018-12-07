@@ -1,3 +1,3 @@
-#ELI
+# ELI
 
-A notepad for errors
+A notepad for errors.
